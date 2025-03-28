@@ -22,28 +22,54 @@ export function WalletProvider({ children }: { children: ReactNode }) {
   const [selectedWalletType, setSelectedWalletType] = useState<string | null>(null);
 
   const connectWallet = useCallback(async () => {
+    if (!selectedWalletType) {
+      return;
+    }
+    
     setConnecting(true);
     
     try {
       // Check if real wallet provider exists (Phantom, Solflare)
       const anyWindow = window as any;
       let walletProvider;
+      let useMockWallet = false;
       
-      if (selectedWalletType === "phantom" && anyWindow.phantom?.solana) {
-        walletProvider = anyWindow.phantom.solana;
-      } else if (selectedWalletType === "solflare" && anyWindow.solflare) {
-        walletProvider = anyWindow.solflare;
-      } else {
-        // Use mock wallet for development
-        walletProvider = createMockWallet(selectedWalletType || "phantom");
+      if (selectedWalletType === "phantom") {
+        // Try to get Phantom wallet
+        if (anyWindow.phantom?.solana) {
+          console.log("Using Phantom wallet provider");
+          walletProvider = anyWindow.phantom.solana;
+        } else {
+          console.log("Phantom wallet not found, using mock wallet");
+          useMockWallet = true;
+        }
+      } else if (selectedWalletType === "solflare") {
+        // Try to get Solflare wallet
+        if (anyWindow.solflare) {
+          console.log("Using Solflare wallet provider");
+          walletProvider = anyWindow.solflare;
+        } else {
+          console.log("Solflare wallet not found, using mock wallet");
+          useMockWallet = true;
+        }
+      }
+      
+      // Use mock wallet as fallback for development
+      if (useMockWallet || !walletProvider) {
+        console.log("Creating mock wallet for", selectedWalletType);
+        walletProvider = createMockWallet(selectedWalletType);
       }
 
       // Connect to wallet
       if (walletProvider) {
         try {
+          console.log("Attempting to connect to wallet...");
           await walletProvider.connect();
           
+          // Check if successfully connected
           if (walletProvider.publicKey || walletProvider.address) {
+            console.log("Successfully connected to wallet");
+            
             const connectedWallet: Wallet = {
               connected: true,
               address: walletProvider.publicKey?.toString() || walletProvider.address,
@@ -57,10 +83,14 @@ export function WalletProvider({ children }: { children: ReactNode }) {
             
             setWallet(connectedWallet);
             setShowWalletModal(false);
+          } else {
+            console.error("Wallet connection failed: No public key or address available");
           }
         } catch (error) {
           console.error("Error connecting to wallet:", error);
         }
+      } else {
+        console.error("No wallet provider available");
       }
     } finally {
       setConnecting(false);
