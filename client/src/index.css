@@ -2,6 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Logo animations and effects */
+.logo-animated {
+  transition: all 0.3s ease;
+}
+
+.logo-animated:hover .logo-outer-hex {
+  filter: drop-shadow(0 0 6px var(--primary));
+}
+
+.logo-animated:hover .logo-node {
+  filter: drop-shadow(0 0 2px var(--primary));
+}
+
+.logo-animated .logo-letter {
+  transition: fill 0.3s ease;
+}
+
+.logo-animated:hover .logo-letter {
+  fill: white;
+}
+
+/* Dark mode adjustments */
+.dark .logo-animated .logo-letter {
+  fill: white;
+}
+
+.dark .logo-animated:hover .logo-outer-hex {
+  filter: drop-shadow(0 0 8px var(--primary));
+}
+
 /* 3D Transform Styles */
 .perspective-800 {
   perspective: 800px;

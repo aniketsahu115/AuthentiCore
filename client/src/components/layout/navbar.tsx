@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/sheet";
 import { useTheme } from "@/hooks/use-theme";
 import ConnectButton from "@/components/wallet/connect-button";
+import Logo from "@/components/ui/logo";
 
 export default function Navbar() {
   const { theme, setTheme } = useTheme();
@@ -23,11 +24,13 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
-            <Link href="/" className="flex items-center">
-              <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-primary text-white font-bold">
-                AC
+            <Link href="/" className="flex items-center group">
+              <div className="flex items-center justify-center">
+                <Logo size={42} animated={true} textColor={theme === "dark" ? "white" : "#4b5563"} />
               </div>
-              <span className="ml-2 text-xl font-semibold">AuthentiCore</span>
+              <span className="ml-2 text-xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/80 group-hover:from-primary group-hover:to-primary/70 transition-all duration-300">
+                AuthentiCore
+              </span>
             </Link>
           </div>
 
@@ -79,6 +82,12 @@ export default function Navbar() {
                 </Button>
               </SheetTrigger>
               <SheetContent side="right" className="w-[300px] sm:w-[400px]">
+                <div className="flex items-center mt-4 ml-3">
+                  <Logo size={32} animated={false} textColor={theme === "dark" ? "white" : "#4b5563"} />
+                  <span className="ml-2 text-lg font-semibold bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/80">
+                    AuthentiCore
+                  </span>
+                </div>
                 <nav className="flex flex-col gap-4 mt-8">
                   <Link 
                     href="/" 
