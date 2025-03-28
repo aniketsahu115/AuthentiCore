@@ -50,16 +50,16 @@ export default function Navbar() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">
-            <Link to="/" className="text-gray-700 hover:text-primary dark:text-gray-300 dark:hover:text-white px-3 py-2 text-sm font-medium">
+            <Link to="/" className="text-gray-700 hover:text-primary dark:text-gray-300 dark:hover:text-white px-3 py-2 text-sm font-medium rounded-md transition-all duration-200 hover:bg-gray-100 dark:hover:bg-gray-800/50">
               Home
             </Link>
-            <Link to="/verify-product" className="text-gray-700 hover:text-primary dark:text-gray-300 dark:hover:text-white px-3 py-2 text-sm font-medium">
+            <Link to="/verify-product" className="text-gray-700 hover:text-primary dark:text-gray-300 dark:hover:text-white px-3 py-2 text-sm font-medium rounded-md transition-all duration-200 hover:bg-gray-100 dark:hover:bg-gray-800/50">
               Verify Product
             </Link>
-            <Link to="/register-product" className="text-gray-700 hover:text-primary dark:text-gray-300 dark:hover:text-white px-3 py-2 text-sm font-medium">
+            <Link to="/register-product" className="text-gray-700 hover:text-primary dark:text-gray-300 dark:hover:text-white px-3 py-2 text-sm font-medium rounded-md transition-all duration-200 hover:bg-gray-100 dark:hover:bg-gray-800/50">
               For Manufacturers
             </Link>
-            <Link to="/about" className="text-gray-700 hover:text-primary dark:text-gray-300 dark:hover:text-white px-3 py-2 text-sm font-medium">
+            <Link to="/about" className="text-gray-700 hover:text-primary dark:text-gray-300 dark:hover:text-white px-3 py-2 text-sm font-medium rounded-md transition-all duration-200 hover:bg-gray-100 dark:hover:bg-gray-800/50">
               About
             </Link>
           </nav>
@@ -87,17 +87,17 @@ export default function Navbar() {
             {!isAuthenticated ? (
               <div className="flex gap-2">
                 <Link to="/login">
-                  <Button variant="outline" size="sm">Login</Button>
+                  <Button variant="outline" size="sm" className="transition-all duration-200 hover:shadow-sm">Login</Button>
                 </Link>
                 <Link to="/register">
-                  <Button size="sm">Register</Button>
+                  <Button size="sm" className="transition-all duration-200 hover:shadow-md hover:scale-105">Register</Button>
                 </Link>
               </div>
             ) : (
               <div className="flex items-center gap-2">
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
-                    <Button variant="ghost" className="relative h-8 w-8 rounded-full">
+                    <Button variant="ghost" className="relative h-8 w-8 rounded-full transition-all duration-200 hover:bg-primary/10 hover:scale-110">
                       <Avatar className="h-8 w-8">
                         <AvatarImage src={`https://ui-avatars.com/api/?name=${user?.username}&background=random`} alt={user?.username} />
                         <AvatarFallback>{user?.username?.charAt(0).toUpperCase()}</AvatarFallback>
@@ -162,28 +162,28 @@ export default function Navbar() {
                 <nav className="flex flex-col gap-4 mt-8">
                   <Link 
                     to="/" 
-                    className="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-100 dark:hover:bg-gray-800"
+                    className="block px-3 py-2 rounded-md text-base font-medium transition-all duration-200 hover:bg-gray-100/80 dark:hover:bg-gray-800/60 hover:text-primary dark:hover:text-primary"
                     onClick={() => setIsOpen(false)}
                   >
                     Home
                   </Link>
                   <Link 
                     to="/verify-product" 
-                    className="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-100 dark:hover:bg-gray-800"
+                    className="block px-3 py-2 rounded-md text-base font-medium transition-all duration-200 hover:bg-gray-100/80 dark:hover:bg-gray-800/60 hover:text-primary dark:hover:text-primary"
                     onClick={() => setIsOpen(false)}
                   >
                     Verify Product
                   </Link>
                   <Link 
                     to="/register-product" 
-                    className="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-100 dark:hover:bg-gray-800"
+                    className="block px-3 py-2 rounded-md text-base font-medium transition-all duration-200 hover:bg-gray-100/80 dark:hover:bg-gray-800/60 hover:text-primary dark:hover:text-primary"
                     onClick={() => setIsOpen(false)}
                   >
                     For Manufacturers
                   </Link>
                   <Link 
                     to="/about" 
-                    className="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-100 dark:hover:bg-gray-800"
+                    className="block px-3 py-2 rounded-md text-base font-medium transition-all duration-200 hover:bg-gray-100/80 dark:hover:bg-gray-800/60 hover:text-primary dark:hover:text-primary"
                     onClick={() => setIsOpen(false)}
                   >
                     About
