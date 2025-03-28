@@ -33,25 +33,17 @@ export default function Navbar() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">
-            <Link href="/">
-              <a className="text-gray-700 hover:text-primary dark:text-gray-300 dark:hover:text-white px-3 py-2 text-sm font-medium">
-                Home
-              </a>
+            <Link href="/" className="text-gray-700 hover:text-primary dark:text-gray-300 dark:hover:text-white px-3 py-2 text-sm font-medium">
+              Home
             </Link>
-            <Link href="/verify">
-              <a className="text-gray-700 hover:text-primary dark:text-gray-300 dark:hover:text-white px-3 py-2 text-sm font-medium">
-                Verify Product
-              </a>
+            <Link href="/verify" className="text-gray-700 hover:text-primary dark:text-gray-300 dark:hover:text-white px-3 py-2 text-sm font-medium">
+              Verify Product
             </Link>
-            <Link href="/register">
-              <a className="text-gray-700 hover:text-primary dark:text-gray-300 dark:hover:text-white px-3 py-2 text-sm font-medium">
-                For Manufacturers
-              </a>
+            <Link href="/register" className="text-gray-700 hover:text-primary dark:text-gray-300 dark:hover:text-white px-3 py-2 text-sm font-medium">
+              For Manufacturers
             </Link>
-            <Link href="/about">
-              <a className="text-gray-700 hover:text-primary dark:text-gray-300 dark:hover:text-white px-3 py-2 text-sm font-medium">
-                About
-              </a>
+            <Link href="/about" className="text-gray-700 hover:text-primary dark:text-gray-300 dark:hover:text-white px-3 py-2 text-sm font-medium">
+              About
             </Link>
           </nav>
 
@@ -88,37 +80,33 @@ export default function Navbar() {
               </SheetTrigger>
               <SheetContent side="right" className="w-[300px] sm:w-[400px]">
                 <nav className="flex flex-col gap-4 mt-8">
-                  <Link href="/">
-                    <a
-                      className="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-100 dark:hover:bg-gray-800"
-                      onClick={() => setIsOpen(false)}
-                    >
-                      Home
-                    </a>
+                  <Link 
+                    href="/" 
+                    className="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-100 dark:hover:bg-gray-800"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    Home
                   </Link>
-                  <Link href="/verify">
-                    <a
-                      className="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-100 dark:hover:bg-gray-800"
-                      onClick={() => setIsOpen(false)}
-                    >
-                      Verify Product
-                    </a>
+                  <Link 
+                    href="/verify" 
+                    className="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-100 dark:hover:bg-gray-800"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    Verify Product
                   </Link>
-                  <Link href="/register">
-                    <a
-                      className="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-100 dark:hover:bg-gray-800"
-                      onClick={() => setIsOpen(false)}
-                    >
-                      For Manufacturers
-                    </a>
+                  <Link 
+                    href="/register" 
+                    className="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-100 dark:hover:bg-gray-800"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    For Manufacturers
                   </Link>
-                  <Link href="/about">
-                    <a
-                      className="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-100 dark:hover:bg-gray-800"
-                      onClick={() => setIsOpen(false)}
-                    >
-                      About
-                    </a>
+                  <Link 
+                    href="/about" 
+                    className="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-100 dark:hover:bg-gray-800"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    About
                   </Link>
                 </nav>
               </SheetContent>
