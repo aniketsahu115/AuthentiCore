@@ -121,16 +121,18 @@ const Logo: React.FC<LogoProps> = ({
         className="logo-shield"
       />
       
-      {/* AC letters */}
+      {/* AC letters - made larger and more centered */}
       <path
-        d="M85 105L75 85H81L88 100L95 85H101L91 105H85Z"
+        d="M82 108L70 85H79L88 104L97 85H106L94 108H82Z"
         fill={textColor}
         className="logo-letter"
+        style={{ fontWeight: 'bold' }}
       />
       <path
-        d="M103 85C103 85 108 85 111 85C114 85 120 87 120 95C120 103 114 105 111 105H103V85ZM109 100C112 100 114 98 114 95C114 92 112 90 109 90H109V100H109Z"
+        d="M103 85C103 85 109 85 113 85C118 85 126 88 126 96.5C126 105 118 108 113 108H103V85ZM111 102C116 102 119 99 119 96.5C119 94 116 91 111 91H111V102H111Z"
         fill={textColor}
         className="logo-letter"
+        style={{ fontWeight: 'bold' }}
       />
       
       {/* Connection lines */}

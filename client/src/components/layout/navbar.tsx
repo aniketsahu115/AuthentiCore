@@ -28,7 +28,7 @@ export default function Navbar() {
               <div className="flex items-center justify-center">
                 <Logo size={42} animated={true} textColor={theme === "dark" ? "white" : "#4b5563"} />
               </div>
-              <span className="ml-2 text-xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/80 group-hover:from-primary group-hover:to-primary/70 transition-all duration-300">
+              <span className="ml-3 text-xl sm:text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/80 group-hover:from-primary group-hover:to-primary/70 transition-all duration-300">
                 AuthentiCore
               </span>
             </Link>
@@ -83,8 +83,8 @@ export default function Navbar() {
               </SheetTrigger>
               <SheetContent side="right" className="w-[300px] sm:w-[400px]">
                 <div className="flex items-center mt-4 ml-3">
-                  <Logo size={32} animated={false} textColor={theme === "dark" ? "white" : "#4b5563"} />
-                  <span className="ml-2 text-lg font-semibold bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/80">
+                  <Logo size={36} animated={false} textColor={theme === "dark" ? "white" : "#4b5563"} />
+                  <span className="ml-3 text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/80">
                     AuthentiCore
                   </span>
                 </div>
