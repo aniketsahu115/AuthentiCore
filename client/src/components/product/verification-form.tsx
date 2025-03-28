@@ -20,7 +20,12 @@ interface VerificationFormData {
   productId: string;
 }
 
-export default function VerificationForm() {
+interface VerificationFormProps {
+  onVerify?: (productId: string) => void;
+  simplified?: boolean;
+}
+
+export default function VerificationForm({ onVerify, simplified = false }: VerificationFormProps) {
   const [_, navigate] = useLocation();
   const [showCameraInput, setShowCameraInput] = useState(false);
   const [verification, setVerification] = useState<ProductVerification | null>(null);
@@ -44,7 +49,11 @@ export default function VerificationForm() {
   });
   
   const onSubmit = async (data: VerificationFormData) => {
-    verifyMutation.mutate(data.productId);
+    if (onVerify) {
+      onVerify(data.productId);
+    } else {
+      verifyMutation.mutate(data.productId);
+    }
   };
   
   const handleQRScan = () => {
@@ -53,38 +62,42 @@ export default function VerificationForm() {
   };
   
   return (
-    <Card>
-      <CardContent className="p-6">
-        <div className="sm:flex sm:items-center">
-          <div className="sm:flex-auto">
-            <h3 className="text-lg font-medium text-gray-900 dark:text-white">Product Authentication</h3>
-            <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
-              Enter the product ID to verify its authenticity on the blockchain.
-            </p>
+    <Card className={simplified ? "shadow-none border-0" : ""}>
+      <CardContent className={simplified ? "p-0" : "p-6"}>
+        {!simplified && (
+          <div className="sm:flex sm:items-center">
+            <div className="sm:flex-auto">
+              <h3 className="text-lg font-medium text-gray-900 dark:text-white">Product Authentication</h3>
+              <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
+                Enter the product ID to verify its authenticity on the blockchain.
+              </p>
+            </div>
+            <div className="mt-4 sm:mt-0 sm:ml-16 sm:flex-none">
+              <Button
+                type="button"
+                variant="outline"
+                className="inline-flex items-center"
+                onClick={handleQRScan}
+              >
+                <Camera className="h-5 w-5 mr-2" />
+                Scan QR Code
+              </Button>
+            </div>
           </div>
-          <div className="mt-4 sm:mt-0 sm:ml-16 sm:flex-none">
-            <Button
-              type="button"
-              variant="outline"
-              className="inline-flex items-center"
-              onClick={handleQRScan}
-            >
-              <Camera className="h-5 w-5 mr-2" />
-              Scan QR Code
-            </Button>
-          </div>
-        </div>
+        )}
         
-        <div className="mt-6">
+        <div className={simplified ? "" : "mt-6"}>
           <form onSubmit={handleSubmit(onSubmit)}>
             <div>
-              <label htmlFor="product-id" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-                Product ID
-              </label>
-              <div className="mt-1 flex rounded-md shadow-sm">
+              {!simplified && (
+                <label htmlFor="product-id" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                  Product ID
+                </label>
+              )}
+              <div className={`${simplified ? "" : "mt-1"} flex rounded-md shadow-sm`}>
                 <Input
                   id="product-id"
-                  placeholder="Enter product ID (e.g., AC15682-H7829B)"
+                  placeholder={simplified ? "Enter product ID" : "Enter product ID (e.g., AC15682-H7829B)"}
                   {...register("productId", { required: "Product ID is required" })}
                   className="flex-1"
                 />
@@ -103,7 +116,7 @@ export default function VerificationForm() {
           </form>
         </div>
         
-        {showCameraInput && (
+        {!simplified && showCameraInput && (
           <div className="mt-4 border border-dashed border-gray-300 dark:border-gray-700 rounded-md p-4">
             <div className="text-center">
               <p className="text-sm text-gray-500 dark:text-gray-400">

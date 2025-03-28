@@ -2,6 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+/* 3D Transform Styles */
+.perspective-800 {
+  perspective: 800px;
+}
+
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+
+:root {
+  --cube-size: 100%;
+}
+
 @layer base {
   * {
     @apply border-border;

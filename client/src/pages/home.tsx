@@ -4,6 +4,7 @@ import FeaturesSection from "@/components/home/features-section";
 import TrustSection from "@/components/home/trust-section";
 import Testimonials from "@/components/home/testimonials";
 import VerificationForm from "@/components/product/verification-form";
+import AuthenticationFlow from "@/components/home/authentication-flow";
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
       <HeroSection />
       <FeaturesSection />
       <HowItWorks />
+      <AuthenticationFlow />
       
       <section id="verification" className="py-16 bg-white dark:bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
