@@ -121,19 +121,23 @@ const BrandLogo: React.FC<BrandLogoProps> = ({
         className="logo-shield"
       />
       
-      {/* AC letters - large and centered */}
-      <path
-        d="M82 108L70 85H79L88 104L97 85H106L94 108H82Z"
-        fill={textColor}
-        className="logo-letter"
-        style={{ fontWeight: 'bold' }}
-      />
-      <path
-        d="M103 85C103 85 109 85 113 85C118 85 126 88 126 96.5C126 105 118 108 113 108H103V85ZM111 102C116 102 119 99 119 96.5C119 94 116 91 111 91H111V102H111Z"
-        fill={textColor}
-        className="logo-letter"
-        style={{ fontWeight: 'bold' }}
-      />
+      {/* Modern stylized A + C letters combined */}
+      <g transform="translate(73, 79) scale(0.9)">
+        {/* Stylized A */}
+        <path
+          d="M30 40L15 90H25L27 83H43L45 90H55L40 40H30ZM29 74L35 55L41 74H29Z"
+          fill={textColor}
+          className="logo-letter"
+          style={{ fontWeight: 'bold' }}
+        />
+        {/* Stylized C */}
+        <path
+          d="M60 40C50 40 43 45 40 50C37 55 35 65 40 75C45 85 55 90 65 90C70 90 78 88 83 80L75 75C72 80 67 82 65 82C60 82 55 80 52 75C49 70 49 60 52 55C55 50 60 48 65 48C68 48 73 50 75 55L83 50C80 45 75 40 65 40C63 40 62 40 60 40Z"
+          fill={textColor}
+          className="logo-letter"
+          style={{ fontWeight: 'bold' }}
+        />
+      </g>
       
       {/* Connection lines */}
       {animated && (
@@ -268,7 +272,8 @@ const BrandLogo: React.FC<BrandLogoProps> = ({
           gradientUnits="userSpaceOnUse"
         >
           <stop offset="0%" stopColor="var(--primary)" />
-          <stop offset="100%" stopColor="var(--primary)" stopOpacity="0.8" />
+          <stop offset="50%" stopColor="var(--primary)" stopOpacity="0.9" />
+          <stop offset="100%" stopColor="#3888ff" stopOpacity="0.8" />
         </linearGradient>
       </defs>
     </svg>

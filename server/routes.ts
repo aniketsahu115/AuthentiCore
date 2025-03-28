@@ -1,21 +1,25 @@
-import type { Express, Request, Response } from "express";
+import type { Express, Request, Response, NextFunction } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { z } from "zod";
-import { insertProductSchema, insertUserSchema, insertProductHistorySchema } from "@shared/schema";
+import { insertProductSchema, insertUserSchema, insertProductHistorySchema, userLoginSchema, userRegistrationSchema } from "@shared/schema";
 import { nanoid } from "nanoid";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // User registration route
-  app.post("/api/users", async (req: Request, res: Response) => {
+  app.post("/api/auth/register", async (req: Request, res: Response) => {
     try {
-      const userData = insertUserSchema.parse(req.body);
+      // Validate registration data
+      const registrationData = userRegistrationSchema.parse(req.body);
       
       // Check if username already exists
-      const existingUser = await storage.getUserByUsername(userData.username);
+      const existingUser = await storage.getUserByUsername(registrationData.username);
       if (existingUser) {
         return res.status(400).json({ message: "Username already exists" });
       }
+      
+      // Create user object from registration data (omit confirmPassword)
+      const { confirmPassword, ...userData } = registrationData;
       
       // Create user
       const newUser = await storage.createUser(userData);
@@ -23,16 +27,56 @@ export async function registerRoutes(app: Express): Promise<Server> {
       // Remove password from response
       const { password, ...userWithoutPassword } = newUser;
       
-      res.status(201).json(userWithoutPassword);
+      res.status(201).json({
+        user: userWithoutPassword,
+        message: "Registration successful"
+      });
     } catch (error) {
       if (error instanceof z.ZodError) {
-        res.status(400).json({ message: "Invalid user data", errors: error.errors });
+        res.status(400).json({ message: "Invalid registration data", errors: error.errors });
       } else {
-        res.status(500).json({ message: "Failed to create user" });
+        res.status(500).json({ message: "Failed to register user" });
       }
     }
   });
 
+  // User login with username and password
+  app.post("/api/auth/login", async (req: Request, res: Response) => {
+    try {
+      const loginData = userLoginSchema.parse(req.body);
+      
+      // Find user by username
+      const user = await storage.getUserByUsername(loginData.username);
+      
+      if (!user) {
+        return res.status(401).json({ message: "Invalid username or password" });
+      }
+      
+      // Check if password matches
+      if (user.password !== loginData.password) {
+        return res.status(401).json({ message: "Invalid username or password" });
+      }
+      
+      // Update last login time
+      user.lastLogin = new Date();
+      
+      // Remove password from response
+      const { password, ...userWithoutPassword } = user;
+      
+      // Return user data
+      res.status(200).json({
+        user: userWithoutPassword,
+        message: "Login successful"
+      });
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        res.status(400).json({ message: "Invalid login data", errors: error.errors });
+      } else {
+        res.status(500).json({ message: "Authentication failed" });
+      }
+    }
+  });
+  
   // User login by wallet address
   app.post("/api/auth/wallet", async (req: Request, res: Response) => {
     try {
@@ -49,13 +93,26 @@ export async function registerRoutes(app: Express): Promise<Server> {
         return res.status(404).json({ message: "User not found with this wallet address" });
       }
       
+      // Update last login time
+      user.lastLogin = new Date();
+      
       // Remove password from response
       const { password, ...userWithoutPassword } = user;
       
-      res.status(200).json(userWithoutPassword);
+      res.status(200).json({
+        user: userWithoutPassword,
+        message: "Login successful"
+      });
     } catch (error) {
       res.status(500).json({ message: "Authentication failed" });
     }
+  });
+  
+  // Get current authenticated user
+  app.get("/api/auth/me", async (req: Request, res: Response) => {
+    // For now, this is a mock endpoint that returns null
+    // In a real app, this would check the session or JWT token
+    res.status(200).json(null);
   });
 
   // Product registration route
