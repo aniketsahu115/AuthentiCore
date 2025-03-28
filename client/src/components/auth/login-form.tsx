@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useLocation } from "wouter";
+import { useLocation, Link } from "wouter";
 import { z } from "zod";
 import { useAuth } from "@/context/auth-context";
 import { Button } from "@/components/ui/button";
@@ -42,14 +42,8 @@ export function LoginForm() {
     try {
       const user = await login(data.username, data.password);
       if (user) {
-        // Redirect based on role
-        if (user.role === "admin") {
-          setLocation("/admin/dashboard");
-        } else if (user.role === "manufacturer") {
-          setLocation("/manufacturer/dashboard");
-        } else {
-          setLocation("/dashboard");
-        }
+        // Redirect to home page for now, we'll add dashboard pages later
+        setLocation("/");
       } else {
         setError("Invalid username or password");
       }
@@ -109,16 +103,12 @@ export function LoginForm() {
       <CardFooter className="flex flex-col space-y-2">
         <div className="text-sm text-center">
           Don't have an account?{" "}
-          <a
-            href="/register"
+          <Link
+            to="/register"
             className="text-primary hover:underline"
-            onClick={(e) => {
-              e.preventDefault();
-              setLocation("/register");
-            }}
           >
             Register
-          </a>
+          </Link>
         </div>
       </CardFooter>
     </Card>
