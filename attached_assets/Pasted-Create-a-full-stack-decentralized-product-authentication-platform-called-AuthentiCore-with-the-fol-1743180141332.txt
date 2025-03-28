@@ -1,0 +1,97 @@
+Create a full-stack decentralized product authentication platform called "AuthentiCore" with the following comprehensive specifications:
+Project Overview:
+- Name: AuthentiCore
+- Concept: Decentralized Product Authentication Platform
+- Core Functionality: Enable product verification through blockchain-linked digital passports
+Frontend Requirements:
+1. User Authentication Sections:
+- Manufacturer Registration Flow
+- Consumer Verification Interface
+- Product Registration Dashboard
+- Real-time Product Authenticity Checker
+2. User Interfaces:
+- Landing Page with Platform Introduction
+- Product Registration Form with Comprehensive Fields:
+  * Product Name
+  * Manufacturer Details
+  * Serial Number
+  * Manufacturing Date
+  * Product Category
+  * Detailed Description
+  * High-Resolution Product Images
+  * Optional Certification Uploads
+3. Wallet Integration Features:
+- Solana Wallet Connection (Phantom, Solflare)
+- Seamless Wallet Authentication
+- Multi-Wallet Support
+- Secure Transaction Signing
+- Wallet Connection/Disconnection Handlers
+4. Product Authentication Mechanisms:
+- Unique QR Code Generation for Each Product
+- Real-time Blockchain Verification
+- Immutable Product History Tracking
+- Provenance Documentation Storage
+5. Interactive Components:
+- Dynamic Product Verification Search
+- Real-time Blockchain Status Indicators
+- Product Lifecycle Visualization
+- Manufacturer and Consumer Dashboards
+6. Security Features:
+- Role-Based Access Control
+- Cryptographic Product Signature
+- Zero-Knowledge Proof Integration
+- Secure Data Encryption
+7. Responsive Design Requirements:
+- Mobile-First Approach
+- Cross-Device Compatibility
+- Adaptive User Interfaces
+- Dark/Light Mode Support
+Backend & Blockchain Integration:
+1. Solana Smart Contract Development:
+- Product Registration Program
+- Authentication Verification Mechanism
+- Immutable Product History Storage
+- Manufacturer Verification Protocol
+2. Data Storage:
+- On-chain Metadata Storage
+- IPFS Integration for Large Files
+- Decentralized Document Preservation
+- Secure Metadata Encryption
+3. Blockchain Interactions:
+- Product Minting as NFT
+- Provenance Tracking
+- Transfer of Ownership Mechanisms
+- Comprehensive Audit Trails
+Additional Features:
+- Multilingual Support
+- Comprehensive Error Handling
+- Performance Optimization
+- Analytics and Reporting Dashboard
+Specific Technical Requirements:
+- Implement Anchor Framework for Solana Program Development
+- Use Metaplex NFT Standards
+- Integrate Solana Web3.js Libraries
+- Implement Comprehensive Error Handling
+- Create Modular, Scalable Architecture
+Deployment Considerations:
+- Testnet Deployment Strategy
+- Mainnet Migration Plan
+- Comprehensive Documentation
+- Setup GitHub Repository with Detailed README
+Validation and Testing:
+- Unit Testing for Smart Contracts
+- Integration Testing
+- User Experience Testing
+- Security Vulnerability Assessment
+Bonus Features (Optional):
+- AI-Powered Authenticity Prediction
+- Machine Learning Fraud Detection
+- Advanced Analytics Dashboard
+- Cross-Chain Compatibility Layer
+Deliverables:
+1. Complete Frontend Application
+2. Solana Smart Contracts
+3. Comprehensive Documentation
+4. Deployment Scripts
+5. Video Demonstration
+Provide a complete, production-ready solution with clean, modular, and scalable code that demonstrates the full potential of blockchain in product authentication.
