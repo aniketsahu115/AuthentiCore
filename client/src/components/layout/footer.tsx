@@ -41,31 +41,35 @@ export default function Footer() {
               <h3 className="text-sm font-semibold text-gray-300 tracking-wider uppercase">Platform</h3>
               <ul className="mt-4 space-y-4">
                 <li>
-                  <Link href="/#how-it-works">
-                    <a className="text-base text-gray-400 hover:text-gray-300">
-                      How it Works
-                    </a>
+                  <Link 
+                    href="/#how-it-works"
+                    className="text-base text-gray-400 hover:text-gray-300"
+                  >
+                    How it Works
                   </Link>
                 </li>
                 <li>
-                  <Link href="/verify">
-                    <a className="text-base text-gray-400 hover:text-gray-300">
-                      Verify Product
-                    </a>
+                  <Link 
+                    href="/verify"
+                    className="text-base text-gray-400 hover:text-gray-300"
+                  >
+                    Verify Product
                   </Link>
                 </li>
                 <li>
-                  <Link href="/register">
-                    <a className="text-base text-gray-400 hover:text-gray-300">
-                      Register Product
-                    </a>
+                  <Link 
+                    href="/register"
+                    className="text-base text-gray-400 hover:text-gray-300"
+                  >
+                    Register Product
                   </Link>
                 </li>
                 <li>
-                  <Link href="/register">
-                    <a className="text-base text-gray-400 hover:text-gray-300">
-                      For Manufacturers
-                    </a>
+                  <Link 
+                    href="/register"
+                    className="text-base text-gray-400 hover:text-gray-300"
+                  >
+                    For Manufacturers
                   </Link>
                 </li>
               </ul>
