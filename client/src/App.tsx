@@ -32,7 +32,8 @@ function Router() {
       <Route path="/login" component={Login} />
       <Route path="/register" component={Register} />
       <Route path="/unauthorized" component={Unauthorized} />
-      <Route component={NotFound} />
+      {/* This is a catch-all route for 404s */}
+      <Route path="/:rest*" component={NotFound} />
     </Switch>
   );
 }

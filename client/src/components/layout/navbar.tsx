@@ -75,10 +75,10 @@ export default function Navbar() {
             
             {/* Login/Register Buttons (temporary) */}
             <div className="flex gap-2">
-              <Link href="/login">
+              <Link to="/login">
                 <Button variant="outline" size="sm">Login</Button>
               </Link>
-              <Link href="/register">
+              <Link to="/register">
                 <Button size="sm">Register</Button>
               </Link>
             </div>
@@ -106,28 +106,28 @@ export default function Navbar() {
                 </div>
                 <nav className="flex flex-col gap-4 mt-8">
                   <Link 
-                    href="/" 
+                    to="/" 
                     className="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-100 dark:hover:bg-gray-800"
                     onClick={() => setIsOpen(false)}
                   >
                     Home
                   </Link>
                   <Link 
-                    href="/verify" 
+                    to="/verify" 
                     className="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-100 dark:hover:bg-gray-800"
                     onClick={() => setIsOpen(false)}
                   >
                     Verify Product
                   </Link>
                   <Link 
-                    href="/register" 
+                    to="/register" 
                     className="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-100 dark:hover:bg-gray-800"
                     onClick={() => setIsOpen(false)}
                   >
                     For Manufacturers
                   </Link>
                   <Link 
-                    href="/about" 
+                    to="/about" 
                     className="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-100 dark:hover:bg-gray-800"
                     onClick={() => setIsOpen(false)}
                   >
