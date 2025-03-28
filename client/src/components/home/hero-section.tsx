@@ -16,17 +16,19 @@ export default function HeroSection() {
               </p>
               <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
                 <div className="rounded-md shadow">
-                  <Link href="/verify">
-                    <a className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary hover:bg-primary-dark md:py-4 md:text-lg md:px-10">
-                      Verify Product
-                    </a>
+                  <Link 
+                    href="/verify"
+                    className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary hover:bg-primary-dark md:py-4 md:text-lg md:px-10"
+                  >
+                    Verify Product
                   </Link>
                 </div>
                 <div className="mt-3 sm:mt-0 sm:ml-3">
-                  <Link href="/register">
-                    <a className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-primary-foreground bg-primary-100 hover:bg-primary-200 dark:bg-primary-900 dark:text-white dark:hover:bg-primary-800 md:py-4 md:text-lg md:px-10">
-                      Register Product
-                    </a>
+                  <Link 
+                    href="/register"
+                    className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-primary-foreground bg-primary-100 hover:bg-primary-200 dark:bg-primary-900 dark:text-white dark:hover:bg-primary-800 md:py-4 md:text-lg md:px-10"
+                  >
+                    Register Product
                   </Link>
                 </div>
               </div>
