@@ -78,24 +78,36 @@ export default function Footer() {
               <h3 className="text-sm font-semibold text-gray-300 tracking-wider uppercase">Support</h3>
               <ul className="mt-4 space-y-4">
                 <li>
-                  <a href="#" className="text-base text-gray-400 hover:text-gray-300">
+                  <Link 
+                    href="/documentation"
+                    className="text-base text-gray-400 hover:text-gray-300"
+                  >
                     Documentation
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#" className="text-base text-gray-400 hover:text-gray-300">
+                  <Link 
+                    href="/documentation?tab=guides"
+                    className="text-base text-gray-400 hover:text-gray-300"
+                  >
                     Guides
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#" className="text-base text-gray-400 hover:text-gray-300">
+                  <Link 
+                    href="/documentation?tab=api"
+                    className="text-base text-gray-400 hover:text-gray-300"
+                  >
                     API Reference
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#" className="text-base text-gray-400 hover:text-gray-300">
+                  <Link 
+                    href="/support"
+                    className="text-base text-gray-400 hover:text-gray-300"
+                  >
                     Contact Support
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -140,7 +152,7 @@ export default function Footer() {
             </a>
           </div>
           <p className="mt-8 text-base text-gray-400 md:mt-0 md:order-1">
-            &copy; 2023 AuthentiCore. All rights reserved.
+            &copy; 2024 AuthentiCore. All rights reserved.
           </p>
         </div>
       </div>

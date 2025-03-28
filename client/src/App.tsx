@@ -12,6 +12,8 @@ import VerifyProduct from "@/pages/verify-product";
 import RegisterProduct from "@/pages/register-product";
 import About from "@/pages/about";
 import ProductDetails from "@/pages/product-details";
+import Documentation from "@/pages/documentation";
+import Support from "@/pages/support";
 
 function Router() {
   return (
@@ -20,6 +22,8 @@ function Router() {
       <Route path="/verify" component={VerifyProduct} />
       <Route path="/register" component={RegisterProduct} />
       <Route path="/about" component={About} />
+      <Route path="/documentation" component={Documentation} />
+      <Route path="/support" component={Support} />
       <Route path="/product/:productId" component={ProductDetails} />
       <Route component={NotFound} />
     </Switch>
