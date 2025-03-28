@@ -8,6 +8,7 @@ interface BrandProps {
   variant?: "default" | "outline" | "filled";
   textColor?: string;
   dark?: boolean;
+  showText?: boolean;
 }
 
 const Brand: React.FC<BrandProps> = ({
@@ -16,7 +17,8 @@ const Brand: React.FC<BrandProps> = ({
   animated = true,
   variant = "default",
   textColor,
-  dark
+  dark,
+  showText = true
 }) => {
   const fontSizeClasses = {
     sm: "text-lg",
@@ -40,9 +42,11 @@ const Brand: React.FC<BrandProps> = ({
           textColor={getTextColor()}
         />
       </div>
-      <span className={`ml-3 ${fontSizeClasses[fontSize]} font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/80 transition-all duration-300 hover:from-primary hover:to-primary/70`}>
-        AuthentiCore
-      </span>
+      {showText && (
+        <span className={`ml-3 ${fontSizeClasses[fontSize]} font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/80 transition-all duration-300 hover:from-primary hover:to-primary/70`}>
+          AuthentiCore
+        </span>
+      )}
     </div>
   );
 };

@@ -44,6 +44,7 @@ export default function Navbar() {
                 fontSize="xl" 
                 animated={true} 
                 dark={theme === "dark"} 
+                showText={true}
               />
             </Link>
           </div>
@@ -157,6 +158,7 @@ export default function Navbar() {
                     fontSize="md" 
                     animated={false} 
                     dark={theme === "dark"} 
+                    showText={true}
                   />
                 </div>
                 <nav className="flex flex-col gap-4 mt-8">
