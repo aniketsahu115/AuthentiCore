@@ -10,6 +10,10 @@ import {
 import { useTheme } from "@/hooks/use-theme";
 import ConnectButton from "@/components/wallet/connect-button";
 import Brand from "@/components/ui/brand";
+import { UserProfile } from "@/components/auth/user-profile";
+import { useAuth } from "@/context/auth-context";
+import { PermissionGate } from "@/components/auth/permission-gate";
+import { PermissionTypes, UserRoles } from "@shared/schema";
 
 export default function Navbar() {
   const { theme, setTheme } = useTheme();
@@ -68,6 +72,16 @@ export default function Navbar() {
 
             {/* Wallet Connect Button */}
             <ConnectButton />
+            
+            {/* Login/Register Buttons (temporary) */}
+            <div className="flex gap-2">
+              <Link href="/login">
+                <Button variant="outline" size="sm">Login</Button>
+              </Link>
+              <Link href="/register">
+                <Button size="sm">Register</Button>
+              </Link>
+            </div>
 
             {/* Mobile Menu Button */}
             <Sheet open={isOpen} onOpenChange={setIsOpen}>

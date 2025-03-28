@@ -2,6 +2,10 @@ import {
   users, 
   products, 
   productHistory, 
+  UserRoles,
+  rolePermissions,
+  type UserRole,
+  type PermissionType,
   type User, 
   type InsertUser, 
   type Product, 
@@ -47,18 +51,54 @@ export class MemStorage implements IStorage {
     this.currentProductId = 1;
     this.currentHistoryId = 1;
     
+    // Add sample admin user
+    this.createUser({
+      username: "admin",
+      password: "admin123",
+      role: UserRoles.ADMIN,
+      email: "admin@authenticore.com"
+    });
+    
     // Add sample manufacturer for testing
     this.createUser({
       username: "soundwave",
       password: "password123",
       companyName: "SoundWave Electronics",
-      walletAddress: "7e2b...a9f2"
+      role: UserRoles.MANUFACTURER,
+      walletAddress: "7e2b...a9f2",
+      email: "contact@soundwave.com"
+    });
+    
+    // Add sample distributor
+    this.createUser({
+      username: "globallogistics",
+      password: "logistics123",
+      companyName: "Global Logistics Inc.",
+      role: UserRoles.DISTRIBUTOR,
+      email: "ops@globallogistics.com"
+    });
+    
+    // Add sample retailer
+    this.createUser({
+      username: "techretail",
+      password: "retail123",
+      companyName: "TechRetail",
+      role: UserRoles.RETAILER,
+      email: "store@techretail.com"
+    });
+    
+    // Add sample consumer
+    this.createUser({
+      username: "johndoe",
+      password: "consumer123",
+      role: UserRoles.CONSUMER,
+      email: "john.doe@example.com"
     });
     
     // Add sample product for testing
     const productData = {
       productName: "Premium Wireless Headphones",
-      manufacturerId: 1,
+      manufacturerId: 2, // SoundWave Electronics
       manufacturerName: "SoundWave Electronics",
       serialNumber: "SW-H7829B-2023",
       manufacturingDate: new Date("2023-01-15"),
@@ -68,20 +108,45 @@ export class MemStorage implements IStorage {
     
     this.createProduct(productData as any);
     
-    // Add product history events
+    // Add sample product history events
     this.addProductHistoryEvent(1, {
       event: "manufactured",
-      data: { location: "Factory 1" }
+      data: { location: "Factory 1", userId: 2, role: UserRoles.MANUFACTURER }
     });
     
     this.addProductHistoryEvent(1, {
-      event: "shipped",
-      data: { destination: "Retailer" }
+      event: "quality_check",
+      data: { status: "passed", userId: 2, role: UserRoles.MANUFACTURER }
+    });
+    
+    this.addProductHistoryEvent(1, {
+      event: "shipped_to_distributor",
+      data: { destination: "Global Logistics Warehouse", userId: 3, role: UserRoles.DISTRIBUTOR }
+    });
+    
+    this.addProductHistoryEvent(1, {
+      event: "received_by_distributor",
+      data: { location: "Global Logistics Warehouse", userId: 3, role: UserRoles.DISTRIBUTOR }
+    });
+    
+    this.addProductHistoryEvent(1, {
+      event: "shipped_to_retailer",
+      data: { destination: "TechRetail Store #42", userId: 3, role: UserRoles.DISTRIBUTOR }
+    });
+    
+    this.addProductHistoryEvent(1, {
+      event: "received_by_retailer",
+      data: { location: "TechRetail Store #42", userId: 4, role: UserRoles.RETAILER }
     });
     
     this.addProductHistoryEvent(1, {
       event: "purchased",
-      data: { buyer: "Consumer" }
+      data: { buyer: "Consumer", userId: 5, role: UserRoles.CONSUMER }
+    });
+    
+    this.addProductHistoryEvent(1, {
+      event: "verified",
+      data: { location: "Consumer Home", userId: 5, role: UserRoles.CONSUMER }
     });
   }
 
@@ -105,14 +170,32 @@ export class MemStorage implements IStorage {
   async createUser(insertUser: InsertUser): Promise<User> {
     const id = this.currentUserId++;
     const now = new Date();
+    
+    // Determine user role and associated permissions
+    const role = (insertUser.role as UserRole) || UserRoles.GUEST;
+    
+    // Get default permissions for the role from the schema
+    const defaultPermissionsArray = rolePermissions[role];
+    
+    // Convert to proper array of PermissionType
+    const userPermissions: PermissionType[] = insertUser.permissions || 
+      defaultPermissionsArray.map(p => p as PermissionType);
+    
     const user: User = { 
       id, 
       username: insertUser.username,
       password: insertUser.password,
       companyName: insertUser.companyName || null,
-      role: "manufacturer", 
+      role, 
+      permissions: userPermissions,
       walletAddress: insertUser.walletAddress || null,
-      createdAt: now 
+      email: insertUser.email || null,
+      phoneNumber: insertUser.phoneNumber || null,
+      isVerified: false,
+      profileImageUrl: insertUser.profileImageUrl || null,
+      lastLogin: null,
+      createdAt: now,
+      updatedAt: null
     };
     this.users.set(id, user);
     return user;
