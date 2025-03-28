@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/sheet";
 import { useTheme } from "@/hooks/use-theme";
 import ConnectButton from "@/components/wallet/connect-button";
-import Logo from "@/components/ui/logo";
+import Brand from "@/components/ui/brand";
 
 export default function Navbar() {
   const { theme, setTheme } = useTheme();
@@ -25,12 +25,12 @@ export default function Navbar() {
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
             <Link href="/" className="flex items-center group">
-              <div className="flex items-center justify-center">
-                <Logo size={42} animated={true} textColor={theme === "dark" ? "white" : "#4b5563"} />
-              </div>
-              <span className="ml-3 text-xl sm:text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/80 group-hover:from-primary group-hover:to-primary/70 transition-all duration-300">
-                AuthentiCore
-              </span>
+              <Brand 
+                logoSize={42} 
+                fontSize="xl" 
+                animated={true} 
+                dark={theme === "dark"} 
+              />
             </Link>
           </div>
 
@@ -83,10 +83,12 @@ export default function Navbar() {
               </SheetTrigger>
               <SheetContent side="right" className="w-[300px] sm:w-[400px]">
                 <div className="flex items-center mt-4 ml-3">
-                  <Logo size={36} animated={false} textColor={theme === "dark" ? "white" : "#4b5563"} />
-                  <span className="ml-3 text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/80">
-                    AuthentiCore
-                  </span>
+                  <Brand 
+                    logoSize={36} 
+                    fontSize="md" 
+                    animated={false} 
+                    dark={theme === "dark"} 
+                  />
                 </div>
                 <nav className="flex flex-col gap-4 mt-8">
                   <Link 

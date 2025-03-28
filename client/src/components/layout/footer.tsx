@@ -1,5 +1,5 @@
 import { Link } from "wouter";
-import Logo from "@/components/ui/logo";
+import Brand from "@/components/ui/brand";
 
 export default function Footer() {
   return (
@@ -7,12 +7,13 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
-            <div className="flex items-center">
-              <Logo size={42} animated={false} textColor="white" variant="filled" />
-              <span className="ml-3 text-xl font-bold text-white bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-300">
-                AuthentiCore
-              </span>
-            </div>
+            <Brand 
+              logoSize={42} 
+              fontSize="lg" 
+              animated={false} 
+              textColor="white" 
+              variant="filled" 
+            />
             <p className="mt-2 text-base text-gray-400">
               Decentralized Product Authentication Platform
             </p>
