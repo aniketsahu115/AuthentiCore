@@ -51,16 +51,16 @@ export default function Navbar() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">
-            <Link to="/" className="text-gray-700 hover:text-primary dark:text-gray-300 dark:hover:text-white px-3 py-2 text-sm font-medium rounded-md transition-all duration-200 hover:bg-gray-100 dark:hover:bg-gray-800/50">
+            <Link to="/" className="text-gray-700 hover:text-primary dark:text-gray-300 dark:hover:text-white px-3 py-2 text-sm font-medium rounded-md transition-all duration-200 hover:bg-gray-300 dark:hover:bg-gray-800/50">
               Home
             </Link>
-            <Link to="/verify-product" className="text-gray-700 hover:text-primary dark:text-gray-300 dark:hover:text-white px-3 py-2 text-sm font-medium rounded-md transition-all duration-200 hover:bg-gray-100 dark:hover:bg-gray-800/50">
+            <Link to="/verify-product" className="text-gray-700 hover:text-primary dark:text-gray-300 dark:hover:text-white px-3 py-2 text-sm font-medium rounded-md transition-all duration-200 hover:bg-gray-300 dark:hover:bg-gray-800/50">
               Verify Product
             </Link>
-            <Link to="/register-product" className="text-gray-700 hover:text-primary dark:text-gray-300 dark:hover:text-white px-3 py-2 text-sm font-medium rounded-md transition-all duration-200 hover:bg-gray-100 dark:hover:bg-gray-800/50">
+            <Link to="/register-product" className="text-gray-700 hover:text-primary dark:text-gray-300 dark:hover:text-white px-3 py-2 text-sm font-medium rounded-md transition-all duration-200 hover:bg-gray-300 dark:hover:bg-gray-800/50">
               For Manufacturers
             </Link>
-            <Link to="/about" className="text-gray-700 hover:text-primary dark:text-gray-300 dark:hover:text-white px-3 py-2 text-sm font-medium rounded-md transition-all duration-200 hover:bg-gray-100 dark:hover:bg-gray-800/50">
+            <Link to="/about" className="text-gray-700 hover:text-primary dark:text-gray-300 dark:hover:text-white px-3 py-2 text-sm font-medium rounded-md transition-all duration-200 hover:bg-gray-300 dark:hover:bg-gray-800/50">
               About
             </Link>
           </nav>
@@ -71,7 +71,7 @@ export default function Navbar() {
               variant="ghost"
               size="icon"
               onClick={toggleTheme}
-              className="text-gray-500 dark:text-gray-400"
+              className="text-gray-900 dark:text-gray-200"
             >
               {theme === "dark" ? (
                 <Sun className="h-5 w-5" />

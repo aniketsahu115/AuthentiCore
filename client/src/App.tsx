@@ -23,7 +23,7 @@ function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
-      <Route path="/verify" component={VerifyProduct} />
+      <Route path="/verify-product" component={VerifyProduct} />
       <Route path="/register-product" component={RegisterProduct} />
       <Route path="/about" component={About} />
       <Route path="/documentation" component={Documentation} />

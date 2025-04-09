@@ -40,7 +40,7 @@ export default function Home() {
           <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl mb-6">
             Ready to secure your products?
           </h2>
-          <p className="text-xl max-w-3xl mx-auto mb-8">
+          <p className="text-xl text-white text-opacity-90 max-w-3xl mx-auto mb-8">
             Join hundreds of brands using AuthentiCore to protect their products and customers from counterfeiting.
           </p>
           <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
