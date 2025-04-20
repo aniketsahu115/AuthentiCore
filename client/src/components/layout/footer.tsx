@@ -52,7 +52,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <Link 
-                    href="/verify"
+                    href="/verify-product"
                     className="text-base text-gray-400 hover:text-gray-300"
                   >
                     Verify Product

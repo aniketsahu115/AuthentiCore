@@ -49,10 +49,10 @@ const teamMembers: TeamMemberProps[] = [
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0qfzsNrM_gYzjm0Qsp_CQPv2CdS46TRVCQA&s",
   },
   {
-    name: "Shailja Soni",
+    name: "Alok Pawar",
     role: "Blockchain Engineer",
     imageUrl:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIy4yUJWqvB7KXywQqa1HjGJt38igXaYax-Q&s",
+      "https://pics.craiyon.com/2023-11-24/mF3HvlGpSp-yiRGPpPmOBg.webp",
   },
 ];
 
@@ -503,7 +503,7 @@ export default function About() {
             <span className="block">Ready to protect your products?</span>
             <span className="block">Start with AuthentiCore today.</span>
           </h2>
-          <p className="mt-4 text-lg leading-6 text-primary-100 ">
+          <p className="mt-4 text-lg font-medium text-gray-700 dark:text-gray-300">
             Join the growing network of manufacturers and brands using
             blockchain technology to combat counterfeiting.
           </p>
