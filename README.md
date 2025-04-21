@@ -53,7 +53,9 @@ CREATE DATABASE my_local_db;
 DATABASE_URL=postgres://postgres:<your_password>@localhost:5432/my_local_db
 
 ### 6. Run Database Migrations
+```
 npm run db:push
+```
 
 
 ### 7. Start the Development Server
