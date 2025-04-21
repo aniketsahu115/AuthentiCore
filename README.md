@@ -20,6 +20,9 @@ Authenticore is a full-stack web application designed with modern development pr
 - PostgreSQL with Drizzle ORM
 - Passport.js (Authentication)
 
+### Blockchain
+Solana Web3.js
+
 ---
 ## Getting Started
 
