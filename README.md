@@ -8,6 +8,7 @@ Authenticore is a full-stack web application designed with modern development pr
 ![HomePage](https://github.com/aniketsahu115/AuthentiCore/blob/main/attached_assets/Homepage.png)
 ![Authentication](https://github.com/aniketsahu115/AuthentiCore/blob/main/attached_assets/Authentication.png)
 ![Verify Product](https://github.com/aniketsahu115/AuthentiCore/blob/main/attached_assets/Verify-Product.png)
+![Solution](https://github.com/aniketsahu115/AuthentiCore/blob/main/attached_assets/Prepared%20Solution.png)
 
 
 ## Tech Stack
