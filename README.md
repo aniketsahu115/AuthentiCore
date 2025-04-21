@@ -1,5 +1,5 @@
 # Project Overview 
-**[Verify Your Product Here](https://authenticore.onrender.com/)**
+**[Live Here](https://authenticore.onrender.com/)**
 
 # Authenticore
 
@@ -11,10 +11,10 @@ Authenticore is a full-stack web application designed with modern development pr
 
 ### Frontend
 - React.js with TypeScript
-- Vite (Build Tool)
-- Tailwind CSS (Styling)
-- Radix UI (UI Components)
-- React Query (Data Fetching)
+- Vite
+- Tailwind CSS
+- Radix UI
+- React Query
 
 ### Backend
 - Node.js with Express
@@ -22,46 +22,68 @@ Authenticore is a full-stack web application designed with modern development pr
 - PostgreSQL with Drizzle ORM
 - Passport.js (Authentication)
 
-### Development Tools
-- TypeScript (Type Safety)
-- ESBuild (Production Builds)
-- Dotenv (Environment Variable Management)
-
 ---
-
+---
 ## Getting Started
 
 ### 1. Prerequisites
-- Node.js (version 20 or higher recommended)
-- PostgreSQL (Ensure it's installed and running)
+- Node.js
+- PostgreSQL
 
 ### 2. Clone the Repository
 ```bash
-git clone <your-repository-url
+git clone repository-url
 cd authenticore
 ```
 
 ### 3. Install Dependencies
+```bash
 npm install
+```
 
 
 ### 4. Set Up the Database
+```bash
 psql -U postgres
 CREATE DATABASE my_local_db;
+```
 
 ### 5. Configure Environment Variables
+```bash
 DATABASE_URL=postgres://postgres:<your_password>@localhost:5432/my_local_db
+```
 
 ### 6. Run Database Migrations
-```
+```bash
 npm run db:push
 ```
 
 
 ### 7. Start the Development Server
+```bash
 npm run dev
-
+```
 The application will be available at: http://localhost:5000
+
+---
+
+---
+
+## Contributing
+
+Authenticore is currently in the **building phase**.  
+We welcome ideas, feature suggestions, and contributions from the community.
+
+If you'd like to help us improve the project:
+
+- Feel free to **fork** the repository.
+- Add new functionality, fix bugs, or enhance existing features.
+- Open a **pull request** once you're ready — we'll review it as soon as possible.
+
+Your contributions will help us move faster toward making Authenticore stable and production-ready for real-world public use cases.
+
+Thank you for your support!
+
 
 
 
