@@ -35,12 +35,11 @@ Authenticore is a full-stack web application designed with modern development pr
 - Node.js (version 20 or higher recommended)
 - PostgreSQL (Ensure it's installed and running)
 
----
-
 ### 2. Clone the Repository
 ```bash
 git clone <your-repository-url
 cd authenticore
+```
 
 ### 3. Install Dependencies
 npm install
